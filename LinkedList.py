@@ -61,7 +61,7 @@ class LinkedList:
 
             current_node = current_node.next
             index += 1
-            print("\n")
+            print("\ n")
 
         return print(f"Elements in linked list: {elements_with_data}")
 
