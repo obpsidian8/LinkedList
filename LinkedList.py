@@ -61,9 +61,19 @@ class LinkedList:
 
             current_node = current_node.next
             index += 1
-            print("\ n")
+            print("\n")
 
         return print(f"Elements in linked list: {elements_with_data}")
+
+    def list_length(self):
+        counter = 0
+        current_node = self.head_node
+        while current_node.next is not None:
+            current_node = current_node.next
+            counter += 1
+
+        print(f"List length is {counter}")
+        return counter
 
 
 def some_test_function():
@@ -81,6 +91,7 @@ def some_test_function():
     print(f">>> Head node for new linked list is now pointing to {test_linked_list.head_node.next.data} ")
 
     test_linked_list.display_elements()
+    test_linked_list.list_length()
 
 
 if __name__ == "__main__":
