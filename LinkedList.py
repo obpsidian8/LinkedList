@@ -84,38 +84,32 @@ class LinkedList:
         node_to_swap_1 = None
         node_to_swap_1_previous = None
 
-
         while current_node1:
             previous_node1 = current_node1
             current_node1 = current_node1.next
-
 
             if current_node1 is not None and current_node1.data == key1:
                 print(f"Found key {key1}")
                 node_to_swap_1 = current_node1
                 node_to_swap_1_previous = previous_node1
 
-
                 break
 
         current_node2 = self.head_pointer_node
         previous_node2 = None
         node_to_swap_2 = None
-        node_to_swap_2_previous =None
+        node_to_swap_2_previous = None
 
         while current_node2:
             previous_node2 = current_node2
             current_node2 = current_node2.next
-
 
             if current_node2 is not None and current_node2.data == key2:
                 print(f"Found key {key2}")
                 node_to_swap_2 = current_node2
                 node_to_swap_2_previous = previous_node2
 
-
                 break
-
 
         if node_to_swap_1 is None or node_to_swap_2 is None:
             print(f"One of two of the keys supplied missing from the list")
@@ -127,22 +121,39 @@ class LinkedList:
 
             print(f"Proceeding to swap nodes {key1} and {key2}")
 
-
-
             node_to_swap_1_previous.next = node_to_swap_2
             node_to_swap_2_previous.next = node_to_swap_1
 
             temp1 = node_to_swap_1.next
             temp2 = node_to_swap_2.next
+            
             node_to_swap_1.next = temp2
             node_to_swap_2.next = temp1
 
+    def reverse_list(self):
+        print(f"\nReversing List")
+        current_node = self.head_pointer_node
+        previous_node = None
+        temp_next = current_node.next
 
+        while current_node:
 
+            previous_node = current_node
+            current_node = temp_next
 
+            if current_node is None:
+                print(f"\nReached end of list")
+                return
 
+            temp_next = current_node.next
 
+            if temp_next == None:
+                self.head_pointer_node.next = current_node
 
+            if previous_node == self.head_pointer_node:
+                current_node.next = None
+            else:
+                current_node.next = previous_node
 
 
 
@@ -168,10 +179,12 @@ def some_test_function():
     test_linked_list.display_elements()
     test_linked_list.list_length()
 
-    test_linked_list.swap_nodes("D", 1)
+    # test_linked_list.swap_nodes("D", 1)
     # test_linked_list.swap_nodes("A", "B")
     # test_linked_list.swap_nodes("B", "A")
 
+    test_linked_list.display_elements()
+    test_linked_list.reverse_list()
     test_linked_list.display_elements()
 
 
